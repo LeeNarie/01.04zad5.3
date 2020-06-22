@@ -1,0 +1,43 @@
+#include <iostream>
+
+#include <cstdlib>
+
+#include <ctime>
+
+using namespace std;
+
+int rand(int a, int b)
+{
+	int rand_num = 0;
+
+	do
+	{
+		rand_num = rand() % b + 1;
+	} while (rand_num < a);
+	return rand_num;
+}
+
+int main()
+
+{
+	string s = "aabcdefghijklmnopqrstuvwxyz!.?:-,;";
+	srand((unsigned)time(NULL));
+	string word = "";
+	string words = "";
+	int k = rand(1, 10);
+	for (int j = 0; j < k; j++)
+	{
+		for (int i = 0; i < 6; i++)
+		{
+			int simb = rand(1, 34);
+			word += s[simb];
+		}
+		words += word + " ";
+		word = "";
+	}
+
+	cout << words;
+	
+	return 0;
+
+}
